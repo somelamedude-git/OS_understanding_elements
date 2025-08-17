@@ -1,0 +1,32 @@
+#! /usr/bin/vvp
+:ivl_version "12.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/system.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_sys.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/vhdl_textio.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/v2005_math.vpi";
+:vpi_module "/usr/lib/x86_64-linux-gnu/ivl/va_math.vpi";
+S_0x59e9120265a0 .scope module, "more_hello" "more_hello" 2 1;
+ .timescale 0 0;
+v0x59e912026750_0 .var "hello", 39 0;
+E_0x59e912026bd0 .event anyedge, v0x59e912026750_0;
+    .scope S_0x59e9120265a0;
+T_0 ;
+    %pushi/vec4 1214606444, 0, 32; draw_string_vec4
+    %pushi/vec4 111, 0, 8; draw_string_vec4
+    %concat/vec4; draw_string_vec4
+    %store/vec4 v0x59e912026750_0, 0, 40;
+    %end;
+    .thread T_0;
+    .scope S_0x59e9120265a0;
+T_1 ;
+    %wait E_0x59e912026bd0;
+    %vpi_call 2 5 "$display", "%s", v0x59e912026750_0 {0 0 0};
+    %jmp T_1;
+    .thread T_1, $push;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "more_test.v";
