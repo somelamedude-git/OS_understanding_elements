@@ -1,5 +1,5 @@
-module dff(input d, rstn, clk, output q);
-reg q   //Stores 1 bit, can cosplay a flipflop
+module dff(input d, rstn, clk, output reg  q);
+ //Stores 1 bit, can cosplay a flipflop
 
     always @ (posedge clk) begin
         if(!rstn)
