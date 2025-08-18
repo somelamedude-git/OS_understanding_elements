@@ -1,4 +1,4 @@
-module full_adder(input wire a, input wire c_in, output wire c_out, output wire s);
+module full_adder(input wire a, input wire b,  input wire c_in, output wire c_out, output wire s);
     assign s = a^b^c_in;
     wire temp_one = a&b;
     wire temp_two = a&c_in;
