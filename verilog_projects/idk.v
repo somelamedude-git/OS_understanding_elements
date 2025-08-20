@@ -1,6 +1,6 @@
 module des;
 	reg[31:0] data;
-	int i;
+	integer i;
 
 	initial begin
 	data = 32'hFACE_CAFE;
