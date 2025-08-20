@@ -16,8 +16,12 @@ int**** resized_matrix( int** matrix, int rows, int cols){
 	for(int i =0; i<rows; i++){
 		for(int j =0; j<cols; j=j+2){
 			int* arr = (int*) malloc(sizeof(int)*2);
-			arr[0] = matrix
+			arr[0] = matrix[i][j];
+			arr[1] = matrix[i][j+1];
 
-	
+			resized_arr[i][j/2][i] = arr;
+		}
+	}
 
+	return resized_container;
 }
