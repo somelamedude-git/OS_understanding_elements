@@ -6,9 +6,13 @@
 void matmul(unsigned short int A[ROW1][COL1], unsigned short int B[ROW2][COL2], int C[ROW1][COL2]);
 
 void matmul(unsigned short int A[ROW1][COL1], unsigned short int B[ROW2][COL2], int C[ROW1][COL2]){
+	#pragma HLS ARRAY_PARTITION variable=A cyclic factor=100 dim=2
+	#pragma HLS ARRAY_PARTITION variable=B cyclic factor=100 dim=1
+	#pragma HLS ARRAY_PARTITION variable=C cyclic factor=100 dim =1
 	for(int i =0; i<ROW1; i++){
 		for(int k =0; k<COL2; k++){
 			C[i][k] = 0;
+			#pragma HLS UNROLL factor=100
 			for(int j =0; j<ROW2; j++){
 				C[i][k] += (A[i][j]*B[j][k]);
 			}
