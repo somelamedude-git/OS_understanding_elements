@@ -1,0 +1,6 @@
+#include "uintN_t.h"
+#include "debug_port.h"
+
+void add_5_bit(uint5_t a, unint5_t b, uint5_t *c){
+	*c = a+b;
+}
