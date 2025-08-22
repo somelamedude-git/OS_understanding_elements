@@ -10,7 +10,7 @@ void matmul(unsigned short int A[ROW1][COL1], unsigned short int B[ROW2][COL2], 
 		for(int k =0; k<COL2; k++){
 			C[i][k] = 0;
 			for(int j =0; j<ROW2; j++){
-				C[i][k] += (A[i][j]*B[j][k])
+				C[i][k] += (A[i][j]*B[j][k]);
 			}
 		}
 	}
