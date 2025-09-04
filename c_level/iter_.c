@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
-void find_iter_mm(int arr[], int size){
+#include "random.h"
+void find_iter_mm(int* arr, int size){
 	int min_value = arr[0];
 	int max_value = arr[0];
 
@@ -17,11 +17,16 @@ void find_iter_mm(int arr[], int size){
 }
 
 int main(){
-	int arr[8] = {1,2,3,4,5,6,7,8};
+	int size = 500;
+	int* arr = generate_random_array(size);
+	for(int i =0; i<size; i++){
+		printf("%d ", arr[i]);
+	}
+	printf("\n");
 	clock_t start, end;
 	double cpu_run_time;
 	start = clock();
-	find_iter_mm(arr, 8);
+	find_iter_mm(arr, size);
 	end = clock();
 	cpu_run_time = ((double)(end-start))/CLOCKS_PER_SEC;
 	printf("%f ", cpu_run_time);
