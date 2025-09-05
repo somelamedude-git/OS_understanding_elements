@@ -14,10 +14,10 @@ int frogJump(int* heights, int size, int i, int j){
 }
 
 int main(){
-	int height[4] = {4,5,6,7};
-	int size = 4;
+	int height[6] = {2,4,8,16,32,64};
+	int size = 6;
 	int i =0;
-	int j = 3;
+	int j = 5;
 
 	int min_jumps = frogJump(height, size, i, j);
 
