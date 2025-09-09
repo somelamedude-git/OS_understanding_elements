@@ -22,20 +22,25 @@ int** make_memo(int rows, int cols){
 	return memo;
 }
 
+Result make_result(int score, const char* path) {
+    Result r;
+    r.score = score;
+    r.path = strdup(path); 
+    return r;
+}
+
 int max(int a, int b){
 	return (a>b)?a:b;
 }
 
-Result make_path(int score, const char* path){
-	Result r;
-	r.score = score;
-	r.path = strdup(path);
-
-	return r;
-}
-
 Result calculateMaxPoints(int** dungeon, int rows, int cols, int i, int j){
-	if(
+	    if (i >= rows || j >= cols) {
+        return make_result(-1000000, ""); 
+    }
+
+    if (i == rows - 1 && j == cols - 1) {
+        return make_result(dungeon[i][j], "");
+    }
 	Result right = calculateMaxPoints(dungeon, rows, cols, i, j+1);
 	Result down = calculateMaxPoints(dungeon, rows, cols, i+1, j);
 
