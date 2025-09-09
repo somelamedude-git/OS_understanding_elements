@@ -6,10 +6,26 @@ int min(int a, int b){
 	return (a>b)?b:a;
 }
 
+int** make_memo(int rows, int cols){
+	int** memo =(int**)malloc(sizeof(int*)*rows);
+	for(int i =0; i<rows; i++){
+		memo[i] = (int*)malloc(sizeof(int)*cols);
+	}
+	for(int i =0; i<rows; i++){
+		for(int j =0; j<cols; j++){
+			memo[i][j] = -1;
+		}
+	}
+	return memo;
+}
+
 int minSum(int** grid, int rows, int cols, int i, int j){
 	if(i>=rows || j>=cols) return INT_MAX;
 	if(i == rows-1 && j==cols-1) return grid[i][j];
-	return grid[i][j] + min(minSum(grid, rows, cols, i+1, j), minSum(grid, rows, cols, i, j+1));
+	if(memo[i][j] != -1) return memo[i][j];
+	int result =  grid[i][j] + min(minSum(grid, rows, cols, i+1, j), minSum(grid, rows, cols, i, j+1));
+	memo[i][j] = result;
+	return result;
 }
 
 
