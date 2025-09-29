@@ -56,3 +56,30 @@ TreeNode* initNode(int data){
 
 	return node;
 }
+
+TreeNode* insert(TreeNode* node, int key){
+	if(!node) return initNode(key);
+
+	if(key<node->data) node->left = insert(node->left, key);
+	else if(key>node->data) node->right = insert(node->right, key);
+	else return node;
+
+	int balance = calculate_bf(node->left, node->right);
+
+	if(balance > 1 && key < node->left->data) return right_rotate(node);
+
+	if(balance < -1 && key > node->right->data) return left_rotate(node);
+
+	if(balance > 1 && key > node->left->data){
+		node->left = left_rotate(node->left);
+		return right_rotate(node);
+	}
+
+	if(balance < -1 && key < node->right->data){
+		node->right = right_rotate(node->right);
+		return left_rottate(node);
+	}
+
+	return node;
+}
+
