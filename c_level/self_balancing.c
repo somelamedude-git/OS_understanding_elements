@@ -47,4 +47,12 @@ TreeNode* right_rotate(TreeNode* node){
 	return node_left;
 }
 
+TreeNode* initNode(int data){
+	TreeNode* node = (TreeNode*)malloc(sizeof(TreeNodde));
+	TreeNode->left = NULL;
+	TreeNode->right = NULL;
 
+	TreeNode->data = data;
+
+	return node;
+}
